@@ -65,14 +65,15 @@ score_types = [
 
 def get_cv(X, y):
     """Return an iterable cross-validation split using StratifiedKFold."""
-    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=57)
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=56)
     return cv.split(X, y) 
 
 def load_data(path='.', file='X_train.csv'):
     path = Path(path) / "data"
     X_df = pd.read_csv(path / file)
 
-    y = X_df['target']
+    y = X_df['target'].map(int_to_cat)
+    
     X_df = X_df.drop(columns=['target'])
 
     return X_df, y
