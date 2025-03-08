@@ -22,36 +22,48 @@ def get_estimator():
 problem_title = 'Data challenge Absenteism at work'
 
 int_to_cat = {
-    1: "Certain infectious and parasitic diseases",
-    2: "Neoplasms",
-    3: "Diseases of the blood and blood-forming organs and certain \
-        disorders involving the immune mechanism",
-    4: "Endocrine, nutritional and metabolic diseases",
-    5: "Mental and behavioural disorders",
-    6: "Diseases of the nervous system",
-    7: "Diseases of the eye and adnexa",
-    8: "Diseases of the ear and mastoid process",
-    9: "Diseases of the circulatory system",
-    10: "Diseases of the respiratory system",
-    11: "Diseases of the digestive system",
-    12: "Diseases of the skin and subcutaneous tissue",
-    13: "Diseases of the musculoskeletal system and connective tissue",
-    14: "Diseases of the genitourinary system",
-    15: "Pregnancy, childbirth and the puerperium",
-    16: "Certain conditions originating in the perinatal period",
-    17: "Congenital malformations, deformations and chromosomal abnormalities",
-    18: "Symptoms, signs and abnormal clinical and laboratory findings,\
-          not elsewhere classified",
-    19: "Injury, poisoning and certain other consequences of external causes",
-    20: "External causes of morbidity and mortality",
-    21: "Factors influencing health status and contact with health services",
-    22: "Patient follow-up",
-    23: "Medical consultation",
-    24: "Blood donation",
-    25: "Laboratory examination",
-    26: "Unjustified absence",
-    27: "Physiotherapy",
-    28: "Dental consultation"
+
+    0: "Unknown",
+
+    # Group 1: Infectious, Neoplastic, and Immune Diseases
+    1: "Infectious, Neoplastic, and Immune Diseases",
+    2: "Infectious, Neoplastic, and Immune Diseases",
+    3: "Infectious, Neoplastic, and Immune Diseases",
+
+    # Group 2: Chronic and Metabolic Conditions
+    4: "Chronic and Metabolic Conditions",
+    9: "Chronic and Metabolic Conditions",
+    10: "Chronic and Metabolic Conditions",
+    11: "Chronic and Metabolic Conditions",
+
+    # Group 3: Neurological, Psychiatric, and Sensory Disorders
+    5: "Neurological, Psychiatric, and Sensory Disorders",
+    6: "Neurological, Psychiatric, and Sensory Disorders",
+    7: "Neurological, Psychiatric, and Sensory Disorders",
+    8: "Neurological, Psychiatric, and Sensory Disorders",
+
+    # Group 4: Musculoskeletal, Dermatological, and Genitourinary Conditions
+    12: "Musculoskeletal, Dermatological, and Genitourinary Conditions",
+    13: "Musculoskeletal, Dermatological, and Genitourinary Conditions",
+    14: "Musculoskeletal, Dermatological, and Genitourinary Conditions",
+    15: "Musculoskeletal, Dermatological, and Genitourinary Conditions",
+
+    # Group 5: Injuries, External Causes, Pregnancy, and Other Conditions
+    16: "Injuries, External Causes, Pregnancy, and Other Conditions",
+    17: "Injuries, External Causes, Pregnancy, and Other Conditions",
+    18: "Injuries, External Causes, Pregnancy, and Other Conditions",
+    19: "Injuries, External Causes, Pregnancy, and Other Conditions",
+    20: "Injuries, External Causes, Pregnancy, and Other Conditions",
+    21: "Injuries, External Causes, Pregnancy, and Other Conditions",
+
+    # Group 6: Non-Disease Absences (Administrative & Follow-up)
+    22: "Non-Disease Absences",
+    23: "Non-Disease Absences",
+    24: "Non-Disease Absences",
+    25: "Non-Disease Absences",
+    26: "Non-Disease Absences",
+    27: "Non-Disease Absences",
+    28: "Non-Disease Absences"
 }
 
 _prediction_label_names = int_to_cat.values()
@@ -70,7 +82,7 @@ score_types = [
 
 
 def get_cv(X, y):
-    cv = StratifiedShuffleSplit(n_splits=8, test_size=0.2, random_state=57)
+    cv = StratifiedShuffleSplit(n_splits=5, test_size=0.2, random_state=57)
     return cv.split(X, y)
 
 
