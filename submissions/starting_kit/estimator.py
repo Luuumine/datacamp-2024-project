@@ -82,7 +82,7 @@ score_types = [
 
 
 def get_cv(X, y):
-    cv = StratifiedShuffleSplit(n_splits=5, test_size=0.2, random_state=57)
+    cv = StratifiedShuffleSplit(n_splits=5, test_size=0.2, random_state=57, stratify=y)
     return cv.split(X, y)
 
 
