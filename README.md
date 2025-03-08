@@ -7,7 +7,7 @@ This data challenge focuses on predicting the reason of absence of employees at 
 The database was created with records of absenteeism at work from July 2007 to July 2010 at a courier company in Brazil.
 It contains 21 input features and 1 categorical target variable that is `Reason_for_absence`. Each line represents an absence instance with multiple attributes related to personal demographics, work conditions, and health status.
 
-Creators of the dataset : Martiniano, A. & Ferreira, R. (2012). Absenteeism at work [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5X882. (The dataset is provided in **CSV format**.)
+Creators of the dataset : Martiniano, A. & Ferreira, R. (2012). Absenteeism at work [Dataset]. You can find the dataset on UCI Machine Learning Repository. https://doi.org/10.24432/C5X882. (The dataset is provided in **CSV format**.)
 
 ### Features
 1. **Individual ID** (`ID`): Unique identifier for each employee.
