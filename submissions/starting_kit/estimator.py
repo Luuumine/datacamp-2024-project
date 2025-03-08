@@ -3,7 +3,7 @@ import rampwf as rw
 import pandas as pd
 from pathlib import Path
 
-from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedKFold
 
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
@@ -80,12 +80,10 @@ score_types = [
     rw.score_types.Accuracy(name='accuracy', precision=4),
 ]
 
-
 def get_cv(X, y):
-    """Returns a StratifiedShuffleSplit cross-validator object for use in RAMP workflow."""
-    return StratifiedShuffleSplit(n_splits=3, test_size=0.2, random_state=57)
-
-
+    """Return an iterable cross-validation split using StratifiedKFold."""
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=57)
+    return cv.split(X, y) 
 
 def load_data(path='.', file='X_train.csv'):
     path = Path(path) / "data"
