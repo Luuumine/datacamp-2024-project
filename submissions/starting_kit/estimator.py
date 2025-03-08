@@ -7,17 +7,16 @@ from sklearn.model_selection import StratifiedShuffleSplit
 
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 
 
 def get_estimator():
     pipe = make_pipeline(
         StandardScaler(),
-        LogisticRegression()
+        RandomForestClassifier(n_estimators=100, random_state=57)
     )
 
     return pipe
-
 
 
 problem_title = 'Data challenge Absenteism at work'
@@ -25,7 +24,8 @@ problem_title = 'Data challenge Absenteism at work'
 int_to_cat = {
     1: "Certain infectious and parasitic diseases",
     2: "Neoplasms",
-    3: "Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism",
+    3: "Diseases of the blood and blood-forming organs and certain \
+        disorders involving the immune mechanism",
     4: "Endocrine, nutritional and metabolic diseases",
     5: "Mental and behavioural disorders",
     6: "Diseases of the nervous system",
@@ -40,7 +40,8 @@ int_to_cat = {
     15: "Pregnancy, childbirth and the puerperium",
     16: "Certain conditions originating in the perinatal period",
     17: "Congenital malformations, deformations and chromosomal abnormalities",
-    18: "Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",
+    18: "Symptoms, signs and abnormal clinical and laboratory findings,\
+          not elsewhere classified",
     19: "Injury, poisoning and certain other consequences of external causes",
     20: "External causes of morbidity and mortality",
     21: "Factors influencing health status and contact with health services",
@@ -93,10 +94,12 @@ def get_test_data(path='.'):
     file = 'X_test.csv'
     return load_data(path, file)
 
+
 def train(X, y):
     estimator = get_estimator()
     estimator.fit(X, y)
     return estimator
+
 
 if __name__ == '__main__':
     X_train, y_train = get_train_data()
