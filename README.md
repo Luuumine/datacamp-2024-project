@@ -1,7 +1,7 @@
 # Data Challenge: Predicting reason of employee absence
 
 ## Overview
-This data challenge focuses on predicting the reason of absence of employees at a brazilian courier company based on various personal, work-related, and health-related factors. The motivation of this challenge is to permit companies and public administrations to help forecasting the reason of absence at work declared by employees and the reason predicted by a machine learning model.
+This data challenge focuses on predicting the reason of absence of employees at a brazilian courier company based on various personal, work-related, and health-related factors. The motivation of this challenge is to permit companies and public administrations to help forecasting the reason of absence at work declared by employees and the reason predicted by a machine learning model, this could help detecting first signs of burn out or other kind of issues (to help employers health).
 
 ## Dataset Description
 The database was created with records of absenteeism at work from July 2007 to July 2010 at a courier company in Brazil.
